@@ -1,3 +1,5 @@
+// verifies that item isn't empty to avoid "xy is not declared" error messages
+
 export const isEmpty = (value) => {
   return (
     value === undefined ||
