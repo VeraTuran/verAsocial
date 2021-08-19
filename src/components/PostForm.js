@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addPost } from "./actions/post.action";
 
 const PostForm = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const user = useSelector((state) => state.userReducer);
+  const dispatch = useDispatch();
 
   const handleForm = (e) => {
     e.preventDefault();
@@ -16,6 +18,10 @@ const PostForm = () => {
         author: user[0].pseudo,
         likes: 0,
       };
+
+      dispatch(addPost(data));
+      setTitle("");
+      setContent("");
     }
   };
 
