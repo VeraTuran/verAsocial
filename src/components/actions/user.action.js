@@ -2,12 +2,12 @@ import axios from "axios";
 
 export const GET_USER = "GET_USER";
 
-export const getUsers = () => {
+export const getUser = () => {
     return (dispatch) => {
         return axios
-        .get("http://localhost:3000/posts?_sort=id&_order=desc")
+        .get("http://localhost:3000/users?_sort=id&_order=desc")
         .then((res) => {
-            dispatch({type: GET_POSTS, payload:res.data});
+            dispatch({type: GET_USER, payload:res.data});
         })
         .catch((err) => console.log(err))
     };
